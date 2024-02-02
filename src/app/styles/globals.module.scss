@@ -1,0 +1,14 @@
+main.PageContainer {
+  width: 100dvw;
+  height: 100dvh;
+  padding-block: 128px;
+}
+
+div.Column {
+  max-width: 720px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
