@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import { PageContainer, Column } from '@/app/styles/styles'
 import { ComponentList } from './styles'
+import Header from './components/Header';
 
 export default function Home() {
   return (
     <PageContainer>
+        <Header text="George Gloyens" />
       <Column>
-        <h1>Frontend Bites <Image src="/taco.png" alt="Taco" height="48" width="48" style={{marginBottom: "-8px"}} /></h1>
-        <p>A library of assorted frontend components, made by George Gloyens for practice and for production.</p>
+        <p>A library of assorted frontend components, <br />made for practice and production.</p>
         <ComponentList>
           <li><a href="/menu-images">Menu image hover</a></li>
           <li><a href="#">Component 2</a></li>

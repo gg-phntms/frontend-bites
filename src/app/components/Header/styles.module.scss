@@ -1,0 +1,22 @@
+nav.HeaderContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  padding: 8px 12px;
+
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+div.Divider {
+  flex: 1;
+  height: 1px;
+  border-bottom: 1px solid #eee4;
+}
