@@ -9,3 +9,7 @@ export const TextContainer = styled("div", {
 export const Dot = styled("div", {
   css: css.Dot,
 });
+
+export const Paragraph = styled("p", {
+  css: css.Paragraph,
+});

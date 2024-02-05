@@ -1,5 +1,5 @@
 div.ImageHoverTextContainer {
-  font-size: 64px;
+  font-size: 72px;
   width: fit-content;
   position: relative;
   z-index: 1;
@@ -21,7 +21,7 @@ div.ImageHoverTextContainer {
       content: attr(data-content);
       position: absolute;
       left: 0;
-      transition: 0.4s;
+      transition: transform 0.4s;
     }
 
     &::before {
@@ -67,4 +67,10 @@ div.ImageContainer {
 
 div.ImageContainerVisible {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  div.ImageHoverTextContainer {
+    font-size: 48px;
+  }
 }

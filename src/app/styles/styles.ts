@@ -8,4 +8,9 @@ export const PageContainer = styled("main", {
 
 export const Column = styled("div", {
   css: css.Column,
+  variants: {
+    wide: {
+      true: css.ColumnWide,
+    },
+  },
 });

@@ -19,6 +19,7 @@ ul.ComponentList {
 
   li {
     transition: 0.2s;
+    width: fit-content;
 
     &:hover {
       opacity: 0.6;

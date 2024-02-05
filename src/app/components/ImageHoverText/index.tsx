@@ -46,16 +46,16 @@ const ImageHoverText = ({ text, href, target, images, duration }: Props) => {
 
   return (
     <ImageHoverTextContainer ref={containerRef}>
-      <p
-        onMouseOver={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-        onMouseMove={setImagePosition}
-        data-content={text}
-      >
-        <a href={href} target={target}>
+      <a href={href} target={target}>
+        <p
+          onMouseOver={() => setVisible(true)}
+          onMouseLeave={() => setVisible(false)}
+          onMouseMove={setImagePosition}
+          data-content={text}
+        >
           {text}
-        </a>
-      </p>
+        </p>
+      </a>
       {images && (
         <ImageContainer
           visible={visible}

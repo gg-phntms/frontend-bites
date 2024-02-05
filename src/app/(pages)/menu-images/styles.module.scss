@@ -13,3 +13,15 @@ div.Dot {
   margin-block: auto;
   z-index: 1;
 }
+
+p.Paragraph {
+  z-index: 1;
+
+  a {
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
