@@ -75,8 +75,8 @@ export default function Page() {
           />
           <Dot />
           <ImageHoverText
-            text="Amsterdam"
-            href="https://unsplash.com/s/photos/amsterdam?orientation=portrait"
+            text="Sydney"
+            href="https://unsplash.com/s/photos/sydney?orientation=portrait"
             target="_blank"
             images={[
               "/images/cities/tokyo-1.jpg",
