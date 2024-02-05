@@ -4,6 +4,13 @@ main.PageContainer {
   padding-block: 128px;
 }
 
+main.CenterContainer {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 div.Column {
   max-width: 768px;
   margin: auto;

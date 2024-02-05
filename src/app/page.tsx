@@ -17,7 +17,7 @@ export default function Home() {
             <a href="/menu-images">Menu image hover</a>
           </li>
           <li>
-            <a href="#">Component 2</a>
+            <a href="/3d-card">3D card</a>
           </li>
           <li>
             <a href="#">Component 3</a>
