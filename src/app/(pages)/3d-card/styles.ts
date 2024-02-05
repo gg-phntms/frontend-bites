@@ -13,3 +13,7 @@ export const Card = styled("div", {
 export const Shimmer = styled("div", {
   css: css.Shimmer,
 });
+
+export const Glare = styled("div", {
+  css: css.Glare,
+});

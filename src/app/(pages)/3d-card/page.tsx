@@ -3,12 +3,13 @@
 import Header from "@/app/components/Header";
 import { PageContainer } from "@/app/styles/styles";
 import Image from "next/image";
-import { CardContainer, Card, Shimmer } from "./styles";
-import { useRef, useState } from "react";
+import { CardContainer, Card, Shimmer, Glare } from "./styles";
+import { useRef } from "react";
 
 export default function Page() {
   const cardRef = useRef<HTMLDivElement>(null);
   const shimmerRef = useRef<HTMLDivElement>(null);
+  const glareRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (cardRef.current) {
@@ -19,6 +20,12 @@ export default function Page() {
     if (shimmerRef.current) {
       const xAxis = (window.innerWidth / 2 - e.pageX) / -5;
       shimmerRef.current.style.transform = `translateX(${xAxis}px)`;
+    }
+    if (glareRef.current) {
+      const gradientX = (e.clientX / window.innerWidth) * 100;
+      const gradientY = (e.clientY / window.innerHeight) * 100;
+      const gradient = `radial-gradient(farthest-corner circle at ${gradientX}% ${gradientY}%, #fff 0%, #fff0 50%)`;
+      glareRef.current.style.background = gradient;
     }
   };
 
@@ -46,6 +53,7 @@ export default function Page() {
             }}
           />
           <Shimmer ref={shimmerRef} />
+          <Glare ref={glareRef} />
         </Card>
       </CardContainer>
     </PageContainer>

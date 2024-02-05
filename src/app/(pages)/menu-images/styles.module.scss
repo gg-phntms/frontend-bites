@@ -16,6 +16,7 @@ div.Dot {
 
 p.Paragraph {
   z-index: 1;
+  word-break: break-all;
 
   a {
     transition: 0.2s;
