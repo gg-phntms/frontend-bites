@@ -53,11 +53,11 @@ export default function Page() {
             href="https://unsplash.com/s/photos/new-york?orientation=portrait"
             target="_blank"
             images={[
-              "/images/cities/london-1.jpg",
-              "/images/cities/london-2.jpg",
-              "/images/cities/london-3.jpg",
-              "/images/cities/london-4.jpg",
-              "/images/cities/london-5.jpg",
+              "/images/cities/newyork-1.png",
+              "/images/cities/newyork-2.png",
+              "/images/cities/newyork-3.png",
+              "/images/cities/newyork-4.png",
+              "/images/cities/newyork-5.png",
             ]}
           />
           <Dot />
@@ -66,11 +66,11 @@ export default function Page() {
             href="https://unsplash.com/s/photos/rome?orientation=portrait"
             target="_blank"
             images={[
-              "/images/cities/paris-1.jpg",
-              "/images/cities/paris-2.jpg",
-              "/images/cities/paris-3.jpg",
-              "/images/cities/paris-4.jpg",
-              "/images/cities/paris-5.jpg",
+              "/images/cities/rome-1.png",
+              "/images/cities/rome-2.png",
+              "/images/cities/rome-3.png",
+              "/images/cities/rome-4.png",
+              "/images/cities/rome-5.png",
             ]}
           />
           <Dot />
@@ -79,11 +79,11 @@ export default function Page() {
             href="https://unsplash.com/s/photos/sydney?orientation=portrait"
             target="_blank"
             images={[
-              "/images/cities/tokyo-1.jpg",
-              "/images/cities/tokyo-2.jpg",
-              "/images/cities/tokyo-3.jpg",
-              "/images/cities/tokyo-4.jpg",
-              "/images/cities/tokyo-5.jpg",
+              "/images/cities/sydney-1.png",
+              "/images/cities/sydney-2.png",
+              "/images/cities/sydney-3.png",
+              "/images/cities/sydney-4.png",
+              "/images/cities/sydney-5.png",
             ]}
           />
         </TextContainer>
