@@ -1,4 +1,4 @@
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Cinzel } from "next/font/google";
 
 export const JB_MONO = JetBrains_Mono({
   variable: "--jb-mono",
@@ -7,4 +7,11 @@ export const JB_MONO = JetBrains_Mono({
   fallback: ["sans-serif"],
 });
 
-export const fontClasses = [JB_MONO.variable].join(" ");
+export const CINZEL = Cinzel({
+  variable: "--cinzel",
+  weight: ["400", "700"],
+  subsets: ["latin-ext"],
+  fallback: ["serif"],
+});
+
+export const fontClasses = [JB_MONO.variable, CINZEL.variable].join(" ");

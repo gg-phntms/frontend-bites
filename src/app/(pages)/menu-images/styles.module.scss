@@ -1,0 +1,15 @@
+div.TextContainer {
+  display: flex;
+  column-gap: 12px;
+  flex-wrap: wrap;
+}
+
+div.Dot {
+  height: 8px;
+  min-width: 8px;
+  border-radius: 50%;
+  background-color: #eee;
+
+  margin-block: auto;
+  z-index: 1;
+}

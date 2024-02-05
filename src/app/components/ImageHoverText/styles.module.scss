@@ -1,3 +1,70 @@
-p.ImageHoverTextContainer {
-  font-size: 36px;
+div.ImageHoverTextContainer {
+  font-size: 64px;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+
+  a,
+  p {
+    font-family: var(--cinzel);
+    text-transform: uppercase;
+  }
+
+  p {
+    color: transparent;
+    overflow: hidden;
+    position: relative;
+    margin-inline: 12px;
+
+    &::before,
+    &::after {
+      content: attr(data-content);
+      position: absolute;
+      left: 0;
+      transition: 0.4s;
+    }
+
+    &::before {
+      color: #eee;
+    }
+
+    &::after {
+      transform: translateY(100%);
+      color: goldenrod;
+    }
+
+    &:hover {
+      &::before {
+        transform: translateY(-100%);
+      }
+
+      &::after {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+div.ImageContainer {
+  opacity: 0;
+  width: 200px;
+  height: 300px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+
+  pointer-events: none;
+  transition:
+    transform linear 0.2s,
+    opacity 0.4s;
+
+  img {
+    transition: 0.2s;
+  }
+}
+
+div.ImageContainerVisible {
+  opacity: 1;
 }
