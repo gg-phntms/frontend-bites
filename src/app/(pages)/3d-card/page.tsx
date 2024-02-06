@@ -18,8 +18,15 @@ export default function Page() {
       cardRef.current.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
     }
     if (shimmerRef.current) {
-      const xAxis = (window.innerWidth / 2 - e.pageX) / -5;
-      shimmerRef.current.style.transform = `translateX(${xAxis}px)`;
+      const xAxis = ((window.innerWidth - e.pageX) / window.innerWidth) * 100;
+      shimmerRef.current.style.background = `linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) ${xAxis - 10}%,
+        rgba(255, 255, 255, 1) ${xAxis + 10}%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      url("/images/foil.png") center center / 100% 100%`;
     }
     if (glareRef.current) {
       const gradientX = (e.clientX / window.innerWidth) * 100;
