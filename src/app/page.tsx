@@ -20,7 +20,7 @@ export default function Home() {
             <a href="/3d-card">3D card</a>
           </li>
           <li>
-            <a href="#">Component 3</a>
+            <a href="/image-trail">Image trail</a>
           </li>
         </ComponentList>
       </Column>

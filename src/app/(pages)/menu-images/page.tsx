@@ -1,6 +1,6 @@
 import Header from "@/app/components/Header";
 import ImageHoverText from "@/app/components/ImageHoverText";
-import { PageContainer, Column } from "@/app/styles/styles";
+import { PageContainer, Column, Anchor } from "@/app/styles/styles";
 import { TextContainer, Dot, Paragraph } from "./styles";
 
 export default function Page() {
@@ -89,9 +89,9 @@ export default function Page() {
         </TextContainer>
         <Paragraph>
           Source:{" "}
-          <a href="https://claytoncotterell.com/overview/" target="_blank">
+          <Anchor href="https://claytoncotterell.com/overview/" target="_blank">
             https://claytoncotterell.com/overview/
-          </a>
+          </Anchor>
         </Paragraph>
       </Column>
     </PageContainer>

@@ -19,8 +19,19 @@ div.Column {
   display: flex;
   flex-direction: column;
   gap: 48px;
+
+  position: relative;
+  z-index: 1;
 }
 
 div.ColumnWide {
   max-width: 1080px;
+}
+
+a.Anchor {
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
