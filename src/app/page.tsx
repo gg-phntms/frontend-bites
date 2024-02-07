@@ -10,7 +10,7 @@ export default function Home() {
       <Column>
         <p>
           A library of assorted frontend components, made for practice and
-          production.
+          production. Best viewed on desktop.
         </p>
         <ComponentList>
           <li>
@@ -21,6 +21,9 @@ export default function Home() {
           </li>
           <li>
             <a href="/image-trail">Image trail</a>
+          </li>
+          <li>
+            <a href="/loader">Loader</a>
           </li>
         </ComponentList>
       </Column>

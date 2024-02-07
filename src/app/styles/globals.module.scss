@@ -35,3 +35,20 @@ a.Anchor {
     opacity: 0.6;
   }
 }
+
+button.Button {
+  margin-right: 8px;
+
+  border: 1px solid #eee4;
+  color: #eee;
+  background-color: #222;
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #333;
+  }
+}
