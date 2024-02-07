@@ -13,8 +13,9 @@ const ImageTrail = ({ images }: Props) => {
     Array(images.length).fill({ x: 0, y: 0 })
   );
   const [imageIndex, setImageIndex] = useState(0);
-  const moveThreshold = 50;
+  const imageSpacing = 50;
   const fadeOutTime = 0.2;
+  const followCursorTime = 3;
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -25,7 +26,7 @@ const ImageTrail = ({ images }: Props) => {
           Math.pow(cursorPosition.y - prevPosition.y, 2)
       );
 
-      if (distanceMoved > moveThreshold) {
+      if (distanceMoved > imageSpacing) {
         // Create a new Image element
         const newImage = document.createElement("img");
         newImage.src = images[imageIndex];
@@ -33,14 +34,20 @@ const ImageTrail = ({ images }: Props) => {
 
         // Style the new Image element
         newImage.style.position = "absolute";
-        newImage.style.top = `${e.clientY}px`;
-        newImage.style.left = `${e.clientX}px`;
+        newImage.style.top = `${cursorPosition.y}px`;
+        newImage.style.left = `${cursorPosition.x}px`;
         newImage.style.transform = "translate(-50%, -50%)";
         newImage.style.height = "225px";
         newImage.style.width = "150px";
+        newImage.style.borderRadius = "4px";
         newImage.style.objectFit = "cover";
         newImage.style.opacity = "1";
-        newImage.style.transition = `${fadeOutTime}s`;
+        newImage.style.transition = `
+          opacity ${fadeOutTime}s,
+          transform ${fadeOutTime}s,
+          top linear ${followCursorTime}s,
+          left linear ${followCursorTime}s
+        `;
 
         newImage.className = "TrailImage";
 
@@ -62,8 +69,12 @@ const ImageTrail = ({ images }: Props) => {
 
         const imagesOnScreen = document.querySelectorAll(".TrailImage");
 
-        // If more than 5 images on screen, set opacity to 0 for the oldest images
         imagesOnScreen.forEach((image, index) => {
+          // Move towards cursor
+          (image as HTMLImageElement).style.top = `${cursorPosition.y}px`;
+          (image as HTMLImageElement).style.left = `${cursorPosition.x}px`;
+
+          // If more than 5 images on screen, set opacity to 0 for the oldest images
           if (index < imagesOnScreen.length - 5) {
             (image as HTMLImageElement).style.opacity = "0";
 
