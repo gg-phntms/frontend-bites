@@ -7,13 +7,13 @@ export default function Page() {
     <PageContainer>
       <Header text="Loader" />
       <Column>
-        <Loader />
         <p>
           Source:{" "}
           <Anchor href="https://root-food.com/" target="_blank">
             https://root-food.com/
           </Anchor>
         </p>
+        <Loader text="George Gloyens Frontend Developer" />
       </Column>
     </PageContainer>
   );

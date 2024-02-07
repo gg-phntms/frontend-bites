@@ -2,4 +2,27 @@ div.LoaderContainer {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-block: 64px;
+
+  p {
+    opacity: 0;
+  }
+}
+
+button.Button {
+  display: none;
+  opacity: 0;
+
+  border: 1px solid #eee4;
+  color: #eee;
+  background-color: transparent;
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eee1;
+  }
 }

@@ -64,7 +64,8 @@ const ImageHoverText = ({ text, href, target, images, duration }: Props) => {
           <Image
             src={images[currentImage]}
             alt={`Hover image ${currentImage + 1}`}
-            fill
+            width={200}
+            height={300}
             style={{
               objectFit: "cover",
               transform: `scale(${visible ? 1 : 0.9})`,
