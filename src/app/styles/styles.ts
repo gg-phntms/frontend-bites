@@ -23,3 +23,7 @@ export const Column = styled("div", {
 export const Anchor = styled("a", {
   css: css.Anchor,
 });
+
+export const Button = styled("button", {
+  css: css.Button,
+});

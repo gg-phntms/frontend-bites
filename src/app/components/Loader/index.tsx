@@ -1,6 +1,7 @@
 "use client";
 
-import { LoaderContainer, Button } from "./styles";
+import { LoaderContainer } from "./styles";
+import { Button } from "@/app/styles/styles";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -63,6 +64,7 @@ const Loader = ({ text }: Props) => {
         onClick={() => {
           restart();
         }}
+        style={{ opacity: 0, display: "none" }}
       >
         Restart
       </Button>
