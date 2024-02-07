@@ -22,6 +22,9 @@ export default function Home() {
           <li>
             <a href="/image-trail">Image trail</a>
           </li>
+          <li>
+            <a href="/loader">Loader</a>
+          </li>
         </ComponentList>
       </Column>
     </PageContainer>
