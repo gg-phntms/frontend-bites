@@ -25,6 +25,9 @@ export default function Home() {
           <li>
             <a href="/loader">Loader</a>
           </li>
+          <li>
+            <a href="/line-draw">Line Draw</a>
+          </li>
         </ComponentList>
       </Column>
     </PageContainer>
