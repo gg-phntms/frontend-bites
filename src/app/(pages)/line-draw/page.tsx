@@ -2,7 +2,7 @@
 
 import Header from "@/app/components/Header";
 import LineDraw from "@/app/components/LineDraw";
-import { PageContainer, Column, Button } from "@/app/styles/styles";
+import { PageContainer, Column, Button, Anchor } from "@/app/styles/styles";
 import { useRef, useState } from "react";
 
 export default function Page() {
@@ -27,6 +27,12 @@ export default function Page() {
     <PageContainer>
       <Header text="Line draw" />
       <Column>
+        <p>
+          Source:{" "}
+          <Anchor href="https://saporienatura.it/" target="_blank">
+            https://saporienatura.it/
+          </Anchor>
+        </p>
         <LineDraw key={drawKey} />
         <Button
           ref={buttonRef}
