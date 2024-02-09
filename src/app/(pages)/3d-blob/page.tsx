@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <PageContainer>
       <Header text="3D blob" />
-      <Column>
+      <Column style={{ height: "640px" }}>
         <p>
           Source:{" "}
           <Anchor
@@ -27,16 +27,20 @@ export default function Page() {
           >
             hrahimi270
           </Anchor>
+          ,{" "}
+          <Anchor
+            href="https://blog.chetanverma.com/how-to-create-an-awesome-blob-with-react-three-fiber"
+            target="_blank"
+          >
+            Chetan Verma
+          </Anchor>
         </p>
 
         {/* Blob */}
         <Canvas>
-          <ambientLight intensity={1} />
-          <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            rotateSpeed={0.5}
-          />
+          <ambientLight intensity={0.3} />
+          <directionalLight color="white" position={[-5, 5, 5]} />
+          <OrbitControls enablePan={false} rotateSpeed={0.5} />
           <Blob />
         </Canvas>
       </Column>
