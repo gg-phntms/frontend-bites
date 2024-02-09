@@ -26,7 +26,10 @@ export default function Home() {
             <a href="/loader">Loader</a>
           </li>
           <li>
-            <a href="/line-draw">Line Draw</a>
+            <a href="/line-draw">Line draw</a>
+          </li>
+          <li>
+            <a href="/3d-blob">3D blob</a>
           </li>
         </ComponentList>
       </Column>
