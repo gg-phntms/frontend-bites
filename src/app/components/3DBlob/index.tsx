@@ -45,8 +45,8 @@ const Blob = ({ frequency, speed, amplitude }: Props) => {
     varying float vDisplacement;
     
     void main() {
-      float distort = 2.0 * vDisplacement * u_intensity * sin(vUv.y * 1.0 + u_time);
-      vec3 color = vec3(abs(vUv - 0.5) * 2.0  * (1.0 - distort), 1);
+      float distort = 1.0 * vDisplacement * u_intensity * sin(vUv.y * 1.0 + u_time );
+      vec3 color = vec3(1, abs(vUv.x - 0.5) * 2.0 * (1.0 - distort), abs(vUv.y - 0.5) * 2.0 * (1.0 - distort));
       gl_FragColor = vec4(color, 1.0);
     }
   `;
@@ -60,10 +60,10 @@ const Blob = ({ frequency, speed, amplitude }: Props) => {
   }, []);
 
   useFrame(({ clock }) => {
-    const time = clock.getElapsedTime() * 0.00001;
+    const time = clock.getElapsedTime();
 
     if (materialRef.current) {
-      materialRef.current.uniforms.u_time.value = clock.elapsedTime;
+      materialRef.current.uniforms.u_time.value = time;
       materialRef.current.uniforms.u_speed.value = speed;
     }
 
@@ -85,11 +85,11 @@ const Blob = ({ frequency, speed, amplitude }: Props) => {
             1.5 +
               amplitude *
                 (0.5 +
-                  Math.sin(clock.getElapsedTime()) *
+                  Math.sin(time) *
                     noise4D(
                       vertex.x * spikes,
                       vertex.y * spikes,
-                      vertex.z * spikes + time,
+                      vertex.z * spikes + time * 0.00001,
                       4
                     ))
           );
