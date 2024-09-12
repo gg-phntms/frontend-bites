@@ -31,6 +31,9 @@ export default function Home() {
           <li>
             <a href="/3d-blob">3D blob</a>
           </li>
+          <li>
+            <a href="/canvas-character">Canvas Character</a>
+          </li>
         </ComponentList>
       </Column>
     </PageContainer>
