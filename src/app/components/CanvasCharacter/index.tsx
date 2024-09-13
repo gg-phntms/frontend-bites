@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { CanvasContainer } from "./styles";
 import useCanvasController from './hooks/useCanvasController';
 

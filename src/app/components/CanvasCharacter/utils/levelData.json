@@ -1,0 +1,43 @@
+{
+  "town": {
+    "backgroundImage": "/images/town.webp",
+    "obstacles": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 430
+      },
+      {
+        "x": 0,
+        "y": 430,
+        "width": 620,
+        "height": 100
+      },
+      {
+        "x": 0,
+        "y": 740,
+        "width": 300,
+        "height": 340
+      },
+      {
+        "x": 300,
+        "y": 960,
+        "width": 200,
+        "height": 120
+      },
+      {
+        "x": 1380,
+        "y": 430,
+        "width": 540,
+        "height": 150
+      },
+      {
+        "x": 1620,
+        "y": 840,
+        "width": 300,
+        "height": 240
+      }
+    ]
+  }
+}
