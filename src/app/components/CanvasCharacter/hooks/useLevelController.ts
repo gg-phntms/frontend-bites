@@ -7,7 +7,7 @@ import { Levels } from "../utils/constants";
 import useBackgroundImage from "./useBackgroundImage";
 
 const useLevelController = () => {
-  const [level, setLevel] = useState(Levels.TOWN);
+  const [level, setLevel] = useState(Levels.PLAZA);
   const { obstacles, setObstacles, drawObstacles } = useObstacles();
   const { drawBackgroundImage } = useBackgroundImage(
     data[level].backgroundImage,
@@ -23,7 +23,7 @@ const useLevelController = () => {
     if (!ctx) return;
 
     drawObstacles(ctx);
-    // drawBackgroundImage(ctx);
+    drawBackgroundImage(ctx);
   }, []);
 
   return { setLevel, renderLevel, obstacles };

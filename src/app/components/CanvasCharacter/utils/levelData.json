@@ -39,5 +39,40 @@
         "height": 240
       }
     ]
+  },
+  "plaza": {
+    "backgroundImage": "/images/plaza.webp",
+    "obstacles": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 480
+      },
+      {
+        "x": 250,
+        "y": 480,
+        "width": 400,
+        "height": 50
+      },
+      {
+        "x": 1620,
+        "y": 480,
+        "width": 400,
+        "height": 50
+      },
+      {
+        "x": 0,
+        "y": 980,
+        "width": 200,
+        "height": 100
+      },
+      {
+        "x": 1720,
+        "y": 980,
+        "width": 200,
+        "height": 100
+      }
+    ]
   }
 }

@@ -11,8 +11,6 @@ const useObstacles = () => {
     (ctx: CanvasRenderingContext2D) => {
       if (!ctx) return;
 
-      // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
       obstacles.forEach((obstacle) => {
         ctx.fillStyle = "gray";
         ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
