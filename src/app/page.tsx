@@ -34,6 +34,9 @@ export default function Home() {
           <li>
             <a href="/canvas-character">Canvas Character</a>
           </li>
+          <li>
+            <a href="/spline-test">Spline Test</a>
+          </li>
         </ComponentList>
       </Column>
     </PageContainer>
