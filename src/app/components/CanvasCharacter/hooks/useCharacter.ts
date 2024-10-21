@@ -1,18 +1,27 @@
 // useCharacter.ts
 import { useEffect, useRef, useState } from "react";
-
-type Obstacle = { x: number; y: number; width: number; height: number };
+import { Level, Obstacle, Teleport } from "../utils/constants";
+import useLevelController from "./useLevelController";
 
 const useCharacter = (
-  imageSize: number,
+  spriteSize: number,
   speed: number,
-  obstacles: Obstacle[] // Pass obstacles as a prop
+  obstacles: Obstacle[],
+  checkCollisions: (objects: Obstacle[], x: number, y: number) => boolean,
+  teleports: Teleport[],
+  checkTeleports: (
+    teleports: Teleport[],
+    x: number,
+    y: number
+  ) => Teleport | null,
+  updateLevel: (newLevel: Level) => void
 ) => {
   const [position, setPosition] = useState({ x: 960, y: 720 });
   const [targetPosition, setTargetPosition] = useState({ x: 960, y: 720 });
   const animationRef = useRef<number | null>(null);
   const positionRef = useRef(position);
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const { level } = useLevelController(spriteSize);
 
   useEffect(() => {
     positionRef.current = position;
@@ -40,21 +49,10 @@ const useCharacter = (
         imageRef.current,
         position.x,
         position.y,
-        imageSize,
-        imageSize
+        spriteSize,
+        spriteSize
       );
     }
-  };
-
-  // Check if colliding with any obstacle
-  const isColliding = (x: number, y: number): boolean => {
-    return obstacles.some(
-      (obstacle) =>
-        x < obstacle.x + obstacle.width &&
-        x + imageSize > obstacle.x &&
-        y < obstacle.y + obstacle.height &&
-        y + imageSize > obstacle.y
-    );
   };
 
   useEffect(() => {
@@ -71,13 +69,16 @@ const useCharacter = (
         const nextX = positionRef.current.x + moveX;
         const nextY = positionRef.current.y + moveY;
 
-        if (!isColliding(nextX, nextY)) {
+        if (!checkCollisions(obstacles, nextX, nextY)) {
           setPosition((prevPosition) => ({
             x: prevPosition.x + moveX,
             y: prevPosition.y + moveY,
           }));
 
           animationRef.current = requestAnimationFrame(animate);
+        } else {
+          const teleport = checkTeleports(teleports, nextX, nextY);
+          if (teleport) updateLevel(teleport.destination as Level);
         }
       } else {
         setPosition(targetPosition);
@@ -85,6 +86,13 @@ const useCharacter = (
           cancelAnimationFrame(animationRef.current);
           animationRef.current = null;
         }
+        const teleport = checkTeleports(
+          teleports,
+          positionRef.current.x,
+          positionRef.current.y
+        );
+
+        if (teleport) updateLevel(teleport.destination as Level);
       }
     };
 

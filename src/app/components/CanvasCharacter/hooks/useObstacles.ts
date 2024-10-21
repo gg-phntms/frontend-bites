@@ -1,11 +1,24 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { Obstacle } from "../utils/constants";
 
-const useObstacles = () => {
-  const [obstacles, setObstacles] = useState<
-    { x: number; y: number; width: number; height: number }[]
-  >([]);
+const useObstacles = (spriteSize: number) => {
+  const [obstacles, setObstacles] = useState<Obstacle[]>([]);
+
+  const checkCollisions = (
+    obstacles: Obstacle[],
+    x: number,
+    y: number
+  ): boolean => {
+    return obstacles.some(
+      (obstacle: Obstacle) =>
+        x < obstacle.x + obstacle.width &&
+        x + spriteSize > obstacle.x &&
+        y < obstacle.y + obstacle.height &&
+        y + spriteSize > obstacle.y
+    );
+  };
 
   const drawObstacles = useCallback(
     (ctx: CanvasRenderingContext2D) => {
@@ -23,6 +36,7 @@ const useObstacles = () => {
     obstacles,
     setObstacles,
     drawObstacles,
+    checkCollisions,
   };
 };
 

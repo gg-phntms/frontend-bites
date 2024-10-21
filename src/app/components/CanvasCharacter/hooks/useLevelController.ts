@@ -3,12 +3,15 @@
 import useObstacles from "./useObstacles";
 import data from "../utils/levelData.json";
 import { useCallback, useEffect, useState } from "react";
-import { Levels } from "../utils/constants";
+import { Level } from "../utils/constants";
 import useBackgroundImage from "./useBackgroundImage";
+import useTeleports from "./useTeleports";
 
-const useLevelController = () => {
-  const [level, setLevel] = useState(Levels.PLAZA);
-  const { obstacles, setObstacles, drawObstacles } = useObstacles();
+const useLevelController = (spriteSize: number) => {
+  const [level, setLevel] = useState<Level>(Level.TOWN);
+  const [prevLevel, setPrevLevel] = useState<Level>(Level.TOWN);
+  const { obstacles, setObstacles, drawObstacles } = useObstacles(spriteSize);
+  const { teleports, setTeleports, drawTeleports } = useTeleports(spriteSize);
   const { drawBackgroundImage } = useBackgroundImage(
     data[level].backgroundImage,
     1920,
@@ -17,16 +20,29 @@ const useLevelController = () => {
 
   useEffect(() => {
     setObstacles(data[level].obstacles);
-  }, [setObstacles]);
+    setTeleports(data[level].teleports);
+  }, [obstacles, setObstacles, teleports, setTeleports, level]);
 
-  const renderLevel = useCallback((ctx: CanvasRenderingContext2D) => {
-    if (!ctx) return;
+  const renderLevel = useCallback(
+    (ctx: CanvasRenderingContext2D) => {
+      if (!ctx) return;
 
-    drawObstacles(ctx);
-    drawBackgroundImage(ctx);
-  }, []);
+      drawObstacles(ctx);
+      drawTeleports(ctx);
+      drawBackgroundImage(ctx);
+    },
+    [drawObstacles, drawTeleports]
+  );
 
-  return { setLevel, renderLevel, obstacles };
+  return {
+    level,
+    setLevel,
+    prevLevel,
+    setPrevLevel,
+    renderLevel,
+    obstacles,
+    teleports,
+  };
 };
 
 export default useLevelController;

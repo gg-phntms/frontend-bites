@@ -1,17 +1,44 @@
 import { useEffect } from "react";
 import useCharacter from "./useCharacter";
 import useLevelController from "./useLevelController";
+import { Level } from "../utils/constants";
+import useObstacles from "./useObstacles";
+import useTeleports from "./useTeleports";
 
 const useCanvasController = (canvasRef: React.RefObject<HTMLCanvasElement>) => {
-  const { setLevel, renderLevel, obstacles } = useLevelController();
-
   const spriteSize = 64;
   const speed = 5;
 
-  const { setTargetPosition, drawCharacter } = useCharacter(
+  const { checkCollisions } = useObstacles(spriteSize);
+  const { checkTeleports } = useTeleports(spriteSize);
+
+  const {
+    level,
+    setLevel,
+    prevLevel,
+    setPrevLevel,
+    renderLevel,
+    obstacles,
+    teleports,
+  } = useLevelController(spriteSize);
+
+  // Teleport to another level
+  const updateLevel = (newLevel: Level) => {
+    if (!Object.values(Level).includes(newLevel)) return;
+
+    setPosition({ x: 960, y: 720 });
+    setTargetPosition({ x: 960, y: 720 });
+    setLevel(newLevel);
+  };
+
+  const { setPosition, setTargetPosition, drawCharacter } = useCharacter(
     spriteSize,
     speed,
-    obstacles
+    obstacles,
+    checkCollisions,
+    teleports,
+    checkTeleports,
+    updateLevel
   );
 
   useEffect(() => {
@@ -47,7 +74,14 @@ const useCanvasController = (canvasRef: React.RefObject<HTMLCanvasElement>) => {
     return () => {
       canvas.removeEventListener("click", handleCanvasClick);
     };
-  }, [canvasRef, drawCharacter, setTargetPosition]);
+  }, [canvasRef, drawCharacter, setTargetPosition, level, renderLevel]);
+
+  useEffect(() => {
+    if (prevLevel !== level) {
+      updateLevel(level as Level);
+      setPrevLevel(level);
+    }
+  }, [level, prevLevel, setPrevLevel]);
 
   return {
     canvasWidth: 1920,

@@ -38,6 +38,15 @@
         "width": 300,
         "height": 240
       }
+    ],
+    "teleports": [
+      {
+        "destination": "plaza",
+        "x": 1720,
+        "y": 580,
+        "width": 200,
+        "height": 100
+      }
     ]
   },
   "plaza": {
@@ -71,6 +80,15 @@
         "x": 1720,
         "y": 980,
         "width": 200,
+        "height": 100
+      }
+    ],
+    "teleports": [
+      {
+        "destination": "town",
+        "x": 0,
+        "y": 480,
+        "width": 150,
         "height": 100
       }
     ]
