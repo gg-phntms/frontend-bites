@@ -9,7 +9,7 @@ export default function Page() {
       <Column>
         <p>Hosted on Spline&apos;s CDN:</p>
         <Spline scene="https://prod.spline.design/KFonZGtsoUXP-qx7/scene.splinecode" />
-        <p>[TODO] Hosted locally:</p>
+        <p>Hosted locally:</p>
         <Spline scene="/models/planet/scene.splinecode" />
       </Column>
     </PageContainer>
